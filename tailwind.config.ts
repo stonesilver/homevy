@@ -9,8 +9,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
+        "gray-main": "#777777",
+      },
+      spacing: {
+        13: "0.8125rem",
+      },
+      fontSize: {
+        20: "1.25rem",
+      },
+      fontFamily: {
+        manrope: ["var(--font-manrope)"],
+        "open-sans": ["var(--font-open-sans)"],
       },
     },
   },
