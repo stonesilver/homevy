@@ -17,6 +17,14 @@ const open_sans = Open_Sans({
 export const metadata: Metadata = {
   title: "Boldo",
   description: "Save time by building fast with Boldo Template.",
+  icons: {
+    icon: [
+      {
+        url: "/boldo.svg",
+        href: "/boldo.svg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
