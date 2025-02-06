@@ -18,7 +18,7 @@ const Collapsible = ({ open, title, children }: Props) => {
       <button
         type="button"
         className={cn(
-          "font-open-sans sm:text-20 flex w-full justify-between gap-5 text-base leading-[28px] text-black transition-all duration-200 sm:leading-[32px]",
+          "flex w-full justify-between gap-5 text-left font-open-sans text-base leading-[28px] text-black transition-all duration-200 sm:text-20 sm:leading-[32px]",
           openContent ? "font-medium" : undefined
         )}
         onClick={handleToggle}
@@ -31,7 +31,7 @@ const Collapsible = ({ open, title, children }: Props) => {
 
       <div
         className={cn(
-          "font-open-sans mt-2 overflow-hidden border-b border-b-[#C4C4C4] transition-all duration-[250ms]",
+          "mt-2 overflow-hidden border-b border-b-[#C4C4C4] font-open-sans transition-all duration-[250ms]",
           openContent ? "max-h-[700px] pb-5" : "max-h-0"
         )}
       >

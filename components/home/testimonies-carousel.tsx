@@ -13,7 +13,7 @@ const TestimoniesCarousel = () => {
     const cardWidth = containerRef.current?.children[0]?.scrollWidth ?? 0;
     const clientWidth = containerRef.current?.clientWidth ?? 0;
     const scrollWidth = containerRef.current?.scrollWidth ?? 0;
-    const buttonLabel = (event.target as HTMLButtonElement)?.ariaLabel as unknown as "Previous" | "Next";
+    const buttonLabel = (event.target as HTMLButtonElement)?.dataset?.direction as unknown as "Previous" | "Next";
 
     if (buttonLabel === "Previous") {
       if (scrollLeft + clientWidth < scrollWidth) {
@@ -22,8 +22,8 @@ const TestimoniesCarousel = () => {
           behavior: "smooth",
         });
       }
-    } else {
-      if (scrollLeft > 0) {
+    } else if (buttonLabel === "Next") {
+      if (scrollLeft >= 0) {
         containerRef.current?.scrollTo({
           left: Number(scrollLeft) - Number(cardWidth) - 22,
           behavior: "smooth",
@@ -39,29 +39,32 @@ const TestimoniesCarousel = () => {
           role="button"
           aria-label="Next"
           type="button"
+          data-direction="Next"
           className="center-item group size-[52px] rounded-full bg-white sm:size-[72px]"
           onClick={handleScroll}
         >
           <ArrowRightIcon
-            aria-label="Next"
+            data-direction="Next"
             className="rotate-180 select-none sm:scale-150 group-hover:[&>path]:stroke-secondary"
           />
+          {/* </span> */}
         </button>
         <button
           role="button"
           aria-label="Previous"
+          data-direction="Previous"
           type="button"
           className="center-item group size-[52px] rounded-full bg-white sm:size-[72px]"
           onClick={handleScroll}
         >
           <ArrowRightIcon
-            aria-label="Previous"
+            data-direction="Previous"
             className="select-none sm:scale-150 group-hover:[&>path]:stroke-secondary"
           />
         </button>
       </div>
 
-      <div className="mt-14 overflow-hidden">
+      <div className="mt-5 overflow-hidden lg:mt-14">
         <div ref={containerRef} className="hide-scroll-bar flex w-full flex-nowrap gap-[1.375rem]">
           {userTestimonies.map(({ testimony, name, title, img }, index) => (
             <div
